@@ -1,5 +1,6 @@
 using FluentValidation;
 using FlySeach.CommandQueryDispatcher;
+using FlySearch.AirwaysApi.Airways.HotAir.Domain;
 using FlySearch.AirwaysApi.Airways.HotAir.FindFlight;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -12,6 +13,7 @@ builder.Services.RegisterCommands();
 builder.Services.RegisterQueries();
 
 builder.Services.AddScoped<IValidator<FindFlightRequest>, FindFlightRequestValidator>();
+builder.Services.AddScoped<IHotAirBooking, HotAirHotAirBooking>();
 
 builder.Services.AddSwaggerGen();
 

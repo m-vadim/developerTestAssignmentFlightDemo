@@ -12,10 +12,11 @@ public static class Endpoint {
 			.WithTags("Flight", "HotAir");
 	}
 
-	private static async Task<IResult> FindFlight([AsParameters] FindFlightRequest request,
-												  IValidator<FindFlightRequest> requestValidator,
-												  IQueryDispatcher dispatcher,
-												  CancellationToken cancellationToken) {
+	private static async Task<IResult> FindFlight(
+		[AsParameters] FindFlightRequest request,
+		IValidator<FindFlightRequest> requestValidator,
+		IQueryDispatcher dispatcher,
+		CancellationToken cancellationToken) {
 		var validationResult = await requestValidator.ValidateAsync(request, cancellationToken);
 		if (!validationResult.IsValid) {
 			return Results.ValidationProblem(validationResult.ToDictionary());
