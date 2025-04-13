@@ -1,0 +1,6 @@
+@FlySearch.Airways_HostAddress = http://localhost:5090
+
+GET {{FlySearch.Airways_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
