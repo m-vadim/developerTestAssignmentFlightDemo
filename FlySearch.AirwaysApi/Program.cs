@@ -1,7 +1,7 @@
-using FluentValidation;
 using FlySeach.CommandQueryDispatcher;
-using FlySearch.AirwaysApi.Airways.HotAir.Domain;
-using FlySearch.AirwaysApi.Airways.HotAir.FindFlight;
+using FlySearch.AirwaysApi;
+using FlySearch.AirwaysApi.Airways.HotAir;
+using FlySearch.AirwaysApi.Airways.RoyalAir;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -12,12 +12,13 @@ builder.Services.RegisterDispatcher();
 builder.Services.RegisterCommands();
 builder.Services.RegisterQueries();
 
-builder.Services.AddScoped<IValidator<FindFlightRequest>, FindFlightRequestValidator>();
-builder.Services.AddScoped<IHotAirBooking, HotAirHotAirBooking>();
+builder.Services.RegisterHotAir();
+builder.Services.RegisterRoyalAir();
 
-builder.Services.AddSwaggerGen();
+builder.Services.AddSwaggerGen(opt => opt.CustomSchemaIds(type => type.FullName));
 
 var app = builder.Build();
+app.UseMiddleware<RandomDelayMiddleware>();
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment()) {
@@ -26,7 +27,8 @@ if (app.Environment.IsDevelopment()) {
 	app.UseSwaggerUI();
 }
 
-app.AddFindFlightEndpoint();
+app.RegisterHotAirEndpoints();
+app.RegisterRoyalAirEndpoints();
 
 app.UseHttpsRedirection();
 app.Run();

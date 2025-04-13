@@ -1,8 +1,8 @@
 ﻿using System.Collections.Concurrent;
 
-namespace FlySearch.AirwaysApi.Airways.HotAir.Domain;
+namespace FlySearch.AirwaysApi.Airways.RoyalAir.Domain;
 
-public sealed class HotAirHotAirBooking : IHotAirBooking {
+public sealed class RoyalAirBooking : IRoyalAirBooking {
 	private static readonly IReadOnlyDictionary<string, Seat[]> InitialSeats = GetInitialSeats();
 	private readonly ConcurrentDictionary<string, string> _bookings = new();
 
@@ -53,9 +53,9 @@ public sealed class HotAirHotAirBooking : IHotAirBooking {
 			}, {
 				"AA4567",
 				[
-					new Seat("Economy", false, "18D", 200),
-					new Seat("Economy", true, "23F", 200),
-					new Seat("First", true, "1A", 1000)
+					new Seat("Economy", false, "18D", 150),
+					new Seat("Economy", true, "23F", 150),
+					new Seat("First", true, "1A", 900)
 				]
 			}, {
 				"DL7890",
@@ -72,35 +72,20 @@ public sealed class HotAirHotAirBooking : IHotAirBooking {
 					new Seat("Business", true, "5C", 300)
 				]
 			}, {
-				"LH5678",
-				[
-					new Seat("Economy", false, "44E", 100),
-					new Seat("Premium Economy", true, "27K", 140),
-					new Seat("Business", true, "8D", 300),
-					new Seat("First", true, "2A", 600)
-				]
-			}, {
-				"EK3901",
-				[
-					new Seat("Economy", false, "51G", 100),
-					new Seat("Business", true, "11K", 200),
-					new Seat("First", true, "1F", 500)
-				]
-			}, {
 				"SQ2187",
 				[
-					new Seat("Economy", false, "38A", 100),
-					new Seat("Economy", false, "38B", 100),
-					new Seat("Premium Economy", true, "22D", 200),
-					new Seat("Business", true, "15K", 400)
+					new Seat("Economy", false, "38A", 200),
+					new Seat("Economy", false, "38B", 200),
+					new Seat("Premium Economy", true, "22D", 300),
+					new Seat("Business", true, "15K", 500)
 				]
 			}, {
 				"QF8523",
 				[
-					new Seat("Economy", false, "47C", 100),
-					new Seat("Premium Economy", true, "31A", 200),
-					new Seat("Business", true, "9J", 500),
-					new Seat("First", true, "3F", 900)
+					new Seat("Economy", false, "47C", 200),
+					new Seat("Premium Economy", true, "31A", 300),
+					new Seat("Business", true, "9J", 700),
+					new Seat("First", true, "3F", 1000)
 				]
 			}
 		};

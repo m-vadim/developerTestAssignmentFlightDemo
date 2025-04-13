@@ -2,14 +2,14 @@
 using FlySeach.CommandQueryDispatcher;
 using FlySearch.AirwaysApi.Airways.HotAir.Domain;
 
-namespace FlySearch.AirwaysApi.Airways.HotAir.FindFlight;
+namespace FlySearch.AirwaysApi.Airways.RoyalAir.FindFlight;
 
 public static class Endpoint {
 	public static void AddFindFlightEndpoint(this IEndpointRouteBuilder app) {
-		app.MapGet("api/hot-air/v1/find-flight", FindFlight)
-			.WithName("HotAir - Find Flight")
+		app.MapGet("api/royal-air/v1/find-flight", FindFlight)
+			.WithName("RoyalAir - Find Flight")
 			.WithOpenApi()
-			.WithTags("HotAir");
+			.WithTags("RoyalAir");
 	}
 
 	private static async Task<IResult> FindFlight(
