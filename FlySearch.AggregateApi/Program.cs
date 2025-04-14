@@ -8,6 +8,7 @@ using Refit;
 using IAirlineApi = FlySearch.AggregateApi.Infrastructure.IAirlineApi;
 
 var builder = WebApplication.CreateBuilder(args);
+builder.Logging.ClearProviders().AddConsole();
 
 builder.Services.AddOpenApi();
 builder.Services.AddSingleton(TimeProvider.System);

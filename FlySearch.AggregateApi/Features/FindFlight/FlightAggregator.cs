@@ -5,9 +5,11 @@ namespace FlySearch.AggregateApi.Features.FindFlight;
 
 public sealed class FlightAggregator : IFlightAggregator {
 	private readonly IAirlineApi[] _airlines;
+	private readonly ILogger _logger;
 
-	public FlightAggregator(IAirlineApi[] airlines) {
+	public FlightAggregator(IAirlineApi[] airlines, ILogger<FlightAggregator> logger) {
 		_airlines = airlines;
+		_logger = logger;
 	}
 
 	public async Task<Flight[]> FindFlightAsync(FindFlightsQuery query, CancellationToken cancellationToken = default) {
@@ -30,6 +32,7 @@ public sealed class FlightAggregator : IFlightAggregator {
 
 		var data = new List<Flight>();
 		foreach(Task<Flight[]> task in list) {
+			_logger.LogInformation("Airline returned {Count} flights", task.Result.Length);
 			data.AddRange(task.Result);
 		}
 

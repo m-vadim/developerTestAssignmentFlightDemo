@@ -5,9 +5,11 @@ namespace FlySearch.AggregateApi.AirwaysClient.RoyalAir;
 
 public sealed class RoyalAirAirlineClient : IAirlineApi {
 	private readonly IRoyalAirApi _royalAirApi;
+	private readonly ILogger _logger;
 
-	public RoyalAirAirlineClient(IRoyalAirApi royalAirApi) {
+	public RoyalAirAirlineClient(IRoyalAirApi royalAirApi, ILogger<RoyalAirAirlineClient> logger) {
 		_royalAirApi = royalAirApi;
+		_logger = logger;
 	}
 
 	public string Name => "Royal Air";
@@ -26,7 +28,7 @@ public sealed class RoyalAirAirlineClient : IAirlineApi {
 				return data.Select(Map).ToArray();
 			}
 		} catch (Exception e) {
-			// TODO log error
+			_logger.LogError("Failed to get flights from {Name}: {Message}", Name, e.Message);
 		}
 
 		return [];

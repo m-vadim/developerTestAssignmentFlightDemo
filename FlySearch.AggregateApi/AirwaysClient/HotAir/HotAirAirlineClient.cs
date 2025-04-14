@@ -5,9 +5,11 @@ namespace FlySearch.AggregateApi.AirwaysClient.HotAir;
 
 public sealed class HotAirAirlineClient : IAirlineApi {
 	private readonly IHotAirApi _hotAirApi;
+	private readonly ILogger _logger;
 
-	public HotAirAirlineClient(IHotAirApi hotAirApi) {
+	public HotAirAirlineClient(IHotAirApi hotAirApi, ILogger<HotAirAirlineClient> logger) {
 		_hotAirApi = hotAirApi;
+		_logger = logger;
 	}
 
 	public string Name => "Hot Air";
@@ -26,7 +28,7 @@ public sealed class HotAirAirlineClient : IAirlineApi {
 				return data.Select(Map).ToArray();
 			}
 		} catch (Exception e) {
-			// TODO log error
+			_logger.LogError("Failed to get flights from {Name}: {Message}", Name, e.Message);
 		}
 
 		return [];
