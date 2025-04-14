@@ -4,8 +4,8 @@ namespace FlySeach.CommandQueryDispatcher;
 
 public static class DependencyInjectionRegistration {
 	public static IServiceCollection RegisterDispatcher(this IServiceCollection services) {
-		services.AddSingleton<ICommandDispatcher, CommandDispatcher>();
-		services.AddSingleton<IQueryDispatcher, QueryDispatcher>();
+		services.AddScoped<ICommandDispatcher, CommandDispatcher>();
+		services.AddScoped<IQueryDispatcher, QueryDispatcher>();
 
 		return services;
 	}
@@ -20,7 +20,7 @@ public static class DependencyInjectionRegistration {
 				.Where(i => i.IsGenericType && i.GetGenericTypeDefinition() == typeof(IQueryHandler<,>));
 
 			foreach (var interfaceType in interfaces) {
-				services.AddSingleton(interfaceType, type);
+				services.AddScoped(interfaceType, type);
 			}
 		}
 
@@ -37,7 +37,7 @@ public static class DependencyInjectionRegistration {
 				.Where(i => i.IsGenericType && i.GetGenericTypeDefinition() == typeof(ICommandHandler<,>));
 
 			foreach (var interfaceType in interfaces) {
-				services.AddSingleton(interfaceType, type);
+				services.AddScoped(interfaceType, type);
 			}
 		}
 

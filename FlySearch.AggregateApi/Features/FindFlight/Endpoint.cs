@@ -1,6 +1,6 @@
 ﻿using FluentValidation;
 using FlySeach.CommandQueryDispatcher;
-using FlySearch.AggregateApi.Features.FindFlight.Domain;
+using FlySearch.AggregateApi.Domain;
 
 namespace FlySearch.AggregateApi.Features.FindFlight;
 

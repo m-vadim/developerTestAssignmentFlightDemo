@@ -1,10 +1,9 @@
 ﻿using FluentValidation;
-using FlySearch.AggregateApi.Domain;
 
 namespace FlySearch.AggregateApi.Features.FindFlight;
 
 public sealed class FindFlightRequestValidator : AbstractValidator<FindFlightRequest> {
-	private static readonly string[] PossibleSortBy = [nameof(Flight.FlightNumber)];
+	private static readonly string[] PossibleSortBy = ["flightDate", "flightNumber", "destination", "origin"];
 
 	public FindFlightRequestValidator(TimeProvider time) {
 		RuleFor(request => request.FlightDate)

@@ -33,6 +33,20 @@ public sealed class FlightAggregator : IFlightAggregator {
 			data.AddRange(task.Result);
 		}
 
+		if (!string.IsNullOrWhiteSpace(query.SortBy)) {
+			return SortBy(data, query.SortBy).ToArray();
+		}
+
 		return data.ToArray();
+	}
+
+	private static IOrderedEnumerable<Flight> SortBy(IEnumerable<Flight> flights, string sortBy) {
+		return sortBy switch {
+			"flightDate" => flights.OrderBy(f => f.FlightDate),
+			"flightNumber" => flights.OrderBy(f => f.FlightNumber),
+			"destination" => flights.OrderBy(f => f.DepartureAirportCode),
+			"origin" => flights.OrderBy(f => f.ArrivalAirportCode),
+			_ => throw new ArgumentException($"Sort by {sortBy} is not supported")
+		};
 	}
 }

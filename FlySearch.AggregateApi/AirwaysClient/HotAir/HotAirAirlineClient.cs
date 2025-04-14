@@ -11,7 +11,12 @@ public sealed class HotAirAirlineClient : IAirlineApi {
 	}
 
 	public string Name => "Hot Air";
-	public async Task<Flight[]> FindFlightsAsync(DateOnly? flightDate, string? flightNumber, string? destination, string? origin, string? sortBy, CancellationToken cancellationToken = default) {
+	public async Task<Flight[]> FindFlightsAsync(DateOnly? flightDate,
+												 string? flightNumber,
+												 string? destination,
+												 string? origin,
+												 string? sortBy,
+												 CancellationToken cancellationToken = default) {
 		try {
 			FlightDescription[] data = await _hotAirApi.FindFlightsAsync(flightDate,
 																		 flightNumber,
