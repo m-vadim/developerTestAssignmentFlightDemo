@@ -75,7 +75,7 @@ public sealed class FindFlightsQueryHandler : IQueryHandler<FindFlightsQuery, Fl
 		}
 
 		if (query.FlightDate.HasValue) {
-			data = data.Where(a => a.Departure.DepartureTime.Date == query.FlightDate);
+			data = data.Where(a => a.Departure.DepartureTime.Date == query.FlightDate.Value.Date);
 		}
 
 		return Task.FromResult(data.ToArray());

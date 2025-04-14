@@ -12,4 +12,5 @@ public sealed class FlightDescription {
 	public Departure Departure { get; }
 	public Arrival Arrival { get; }
 	public Seat[] SeatsAvailable { get; }
+	public DateOnly FlightDate => DateOnly.FromDateTime(Departure.DepartureTime.Date);
 }

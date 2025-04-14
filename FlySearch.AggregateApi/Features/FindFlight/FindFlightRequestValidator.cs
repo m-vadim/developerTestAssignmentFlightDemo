@@ -1,5 +1,5 @@
 ﻿using FluentValidation;
-using FlySearch.AggregateApi.Features.FindFlight.Domain;
+using FlySearch.AggregateApi.Domain;
 
 namespace FlySearch.AggregateApi.Features.FindFlight;
 
