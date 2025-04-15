@@ -6,6 +6,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlySeach.CommandQueryDispat
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlySearch.AggregateApi", "FlySearch.AggregateApi\FlySearch.AggregateApi.csproj", "{7B43E822-C673-4769-A29C-ADE7536ACBAC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlySearch.ConsoleClient", "FlySearch.ConsoleClient\FlySearch.ConsoleClient.csproj", "{5F4F928C-1CBB-44BA-BFEC-5E8A5B632638}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,5 +26,9 @@ Global
 		{7B43E822-C673-4769-A29C-ADE7536ACBAC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7B43E822-C673-4769-A29C-ADE7536ACBAC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7B43E822-C673-4769-A29C-ADE7536ACBAC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5F4F928C-1CBB-44BA-BFEC-5E8A5B632638}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5F4F928C-1CBB-44BA-BFEC-5E8A5B632638}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5F4F928C-1CBB-44BA-BFEC-5E8A5B632638}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5F4F928C-1CBB-44BA-BFEC-5E8A5B632638}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

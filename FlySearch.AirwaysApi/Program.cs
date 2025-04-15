@@ -18,7 +18,7 @@ builder.Services.RegisterRoyalAir();
 builder.Services.AddSwaggerGen(opt => opt.CustomSchemaIds(type => type.FullName));
 
 var app = builder.Build();
-app.UseMiddleware<RandomDelayMiddleware>();
+// app.UseMiddleware<RandomDelayMiddleware>(); enable this to simulate a delay in the response
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment()) {
