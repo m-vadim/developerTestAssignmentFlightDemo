@@ -37,12 +37,14 @@ The FlySearch solution is a C# project designed to handle flight search and book
 - **Flight Search**: Search for flights based on various criteria such as flight number, origin, destination, and date.
 - **Flight Booking**: Book flights by providing airline, flight number, seat number, and username.
 - **Console Client**: A demo application to interact with the flight API and showcase its functionality.
+- Vertical slices architecture with CQRS pattern
 
 ## Project Structure
 
 ### `FlySearch.AirwaysApi`
 - Contains demo api for 2 dummy airlines: Royal Air and Hot Air
 - See [Swagger UI](http://localhost:5090/swagger/index.html) for API documentation
+- RandomDelayMiddleware can be enabled in Program to simulate long waits
 
 ### `FlySearch.AggregateApi`
 - Contains api to aggregate results from demo airlines
@@ -51,6 +53,8 @@ The FlySearch solution is a C# project designed to handle flight search and book
 	- Infrastructure - common code
 	- Options - options for project
 - See [Swagger UI](http://localhost:5283/swagger/index.html) for API documentation
+- Timeout 3 seconds set for Refit client factor
+
 
 ### `FlySearch.AggregateApi.UnitTests`
 - Unit tests project for FlySearch.AggregateApi
