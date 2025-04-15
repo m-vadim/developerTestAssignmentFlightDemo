@@ -30,11 +30,11 @@ public static class Endpoint {
 		}
 
 		var command = new BookFlightCommand(request.FlightNumber, request.SeatNumber, request.Username);
-		isBooked = await commandDispatcher.Dispatch<BookFlightCommand, bool>(command, cancellationToken);
-		if (!isBooked) {
+		string bookingCode = await commandDispatcher.Dispatch<BookFlightCommand, string>(command, cancellationToken);
+		if (string.IsNullOrWhiteSpace(bookingCode)) {
 			return Results.Conflict("Booking failed");
 		}
 
-		return Results.Ok();
+		return Results.Ok(bookingCode);
 	}
 }

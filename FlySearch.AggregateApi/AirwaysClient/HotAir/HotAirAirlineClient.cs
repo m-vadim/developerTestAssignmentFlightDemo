@@ -1,5 +1,6 @@
 ﻿using FlySearch.AggregateApi.Domain;
 using FlySearch.AggregateApi.Infrastructure;
+using Refit;
 
 namespace FlySearch.AggregateApi.AirwaysClient.HotAir;
 
@@ -12,7 +13,7 @@ public sealed class HotAirAirlineClient : IAirlineApi {
 		_logger = logger;
 	}
 
-	public string Name => "Hot Air";
+	public string Name =>  "Hot Air";
 	public async Task<Flight[]> FindFlightsAsync(DateOnly? flightDate,
 												 string? flightNumber,
 												 string? destination,
@@ -32,6 +33,27 @@ public sealed class HotAirAirlineClient : IAirlineApi {
 		}
 
 		return [];
+	}
+
+	public async Task<BookingResult> BookAsync(string flightNumber,
+										 string seatNumber,
+										 string userName,
+										 CancellationToken cancellationToken = default) {
+		try {
+			var request = new BookFlightRequest(flightNumber, seatNumber, userName);
+			string bookingCode = await _hotAirApi.BookFlightAsync(request);
+			if (!string.IsNullOrWhiteSpace(bookingCode)) {
+				return new BookingResult(bookingCode, BookingState.Success);
+			}
+		}
+		catch(ApiException e) when (e.StatusCode == System.Net.HttpStatusCode.Conflict) {
+			return new BookingResult(string.Empty, BookingState.AlreadyBooked);
+		}
+		catch (Exception e) {
+			_logger.LogError("Failed to get flights from {Name}: {Message}", Name, e.Message);
+		}
+
+		return new BookingResult(string.Empty, BookingState.Error);
 	}
 
 	private Flight Map(FlightDescription fd) {

@@ -9,7 +9,8 @@ public static class Endpoint {
 		app.MapGet("api/v1/find-flight", FindFlight)
 			.WithName("Find Flight")
 			.WithOpenApi()
-			.WithTags("FlySearch");
+			.WithTags("FlySearch")
+			.AddEndpointFilter<RequestLoggingFilter>();
 	}
 
 	private static async Task<IResult> FindFlight(

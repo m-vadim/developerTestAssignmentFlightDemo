@@ -13,6 +13,4 @@ public sealed class FindFlightsQueryHandler : IQueryHandler<FindFlightsQuery, Fl
 	public async Task<Flight[]> Handle(FindFlightsQuery query, CancellationToken calCancellationToken) {
 		return await _flightAggregator.FindFlightAsync(query, calCancellationToken);
 	}
-
-
 }

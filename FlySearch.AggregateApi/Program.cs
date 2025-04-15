@@ -2,6 +2,7 @@ using FluentValidation;
 using FlySeach.CommandQueryDispatcher;
 using FlySearch.AggregateApi.AirwaysClient.HotAir;
 using FlySearch.AggregateApi.AirwaysClient.RoyalAir;
+using FlySearch.AggregateApi.Features.BookFlight;
 using FlySearch.AggregateApi.Features.FindFlight;
 using FlySearch.AggregateApi.Options;
 using Refit;
@@ -38,6 +39,7 @@ builder.Services.AddScoped<IAirlineApi, RoyalAirAirlineClient>();
 builder.Services.AddScoped<IAirlineApi[]>(serviceProvider =>
 											  serviceProvider.GetServices<IAirlineApi>().ToArray());
 builder.Services.AddScoped<IValidator<FindFlightRequest>, FindFlightRequestValidator>();
+builder.Services.AddScoped<IValidator<FlySearch.AggregateApi.Features.BookFlight.BookFlightRequest>, BookFlightRequestValidator>();
 builder.Services.AddScoped<IFlightAggregator, FlightAggregator>();
 
 
@@ -52,6 +54,8 @@ if (app.Environment.IsDevelopment()) {
 }
 
 app.AddFindFlightEndpoint();
+app.AddBookFlightEndpoint();
 
 app.UseHttpsRedirection();
 app.Run();
+

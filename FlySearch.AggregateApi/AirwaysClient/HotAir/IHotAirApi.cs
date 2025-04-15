@@ -8,4 +8,7 @@ public interface IHotAirApi {
 											   string? flightNumber = null,
 											   string? destination = null,
 											   string? origin = null);
+
+	[Post("/api/hot-air/v1/book-flight")]
+	Task<string> BookFlightAsync(BookFlightRequest request);
 }

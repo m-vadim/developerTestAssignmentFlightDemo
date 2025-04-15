@@ -10,4 +10,8 @@ public interface IAirlineApi {
 									string? origin,
 									string? sortBy,
 									CancellationToken cancellationToken = default);
+	Task<BookingResult> BookAsync(string flightNumber,
+									string seatNumber,
+									string userName,
+									CancellationToken cancellationToken = default);
 }

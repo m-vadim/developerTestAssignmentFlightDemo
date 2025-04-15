@@ -9,4 +9,7 @@ public interface IRoyalAirApi {
 		string? flightNumber = null,
 		string? destination = null,
 		string? origin = null);
+
+	[Post("/api/royal-air/v1/book-flight")]
+	Task<string> BookFlightAsync(BookFlightRequest request);
 }
