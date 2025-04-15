@@ -1,0 +1,11 @@
+﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=21268e49_002D88e5_002D43d8_002Db511_002D202281cf577c/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="HotAirAirlineClientTests" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;TestAncestor&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::05498012-6C9B-4246-A5D4-9337E651319D::net9.0::FlySearch.AggregateApi.UnitTests.AirwaysClient.HotAir.HotAirAirlineClientTests&lt;/TestId&gt;&#xD;
+  &lt;/TestAncestor&gt;&#xD;
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=28e5ee5f_002De352_002D4acc_002D8644_002Da75a4d7939df/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="HotAirAirlineClientTests #2" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;TestAncestor&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::05498012-6C9B-4246-A5D4-9337E651319D::net9.0::FlySearch.AggregateApi.UnitTests.AirwaysClient.HotAir.HotAirAirlineClientTests&lt;/TestId&gt;&#xD;
+  &lt;/TestAncestor&gt;&#xD;
+&lt;/SessionState&gt;</s:String></wpf:ResourceDictionary>
